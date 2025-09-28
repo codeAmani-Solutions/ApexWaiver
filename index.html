@@ -453,7 +453,10 @@
 
             const applyLanguage = (lang) => {
                 translatableElements.forEach(el => {
-                    el.textContent = el.dataset[`lang${lang}`];
+                    const key = lang === 'es' ? 'langEs' : 'langEn';
+                    if (el.dataset[key]) {
+                        el.textContent = el.dataset[key];
+                    }
                 });
                 if (lang === 'es') {
                     langEsButton.classList.add('active');
