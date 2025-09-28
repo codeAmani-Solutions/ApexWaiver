@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Listings | Apex Waiver</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles from main page */
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(71, 85, 105, 0.5);
+        }
+        .bg-gradient-light {
+             background: radial-gradient(circle at top left, #f0f9ff, #e0f2fe, #f0f9ff);
+        }
+        .dark .bg-gradient-dark {
+             background: radial-gradient(circle at top left, #0f172a, #1e293b, #0f172a);
+        }
+        .theme-button {
+            transition: all 0.2s ease-in-out;
+        }
+        .theme-button.active {
+            box-shadow: 0 0 0 2px #14b8a6;
+            background-color: white;
+            color: #14b8a6;
+        }
+        .dark .theme-button.active {
+             background-color: #1e293b;
+             color: #14b8a6;
+        }
+    </style>
+</head>
+<body class="bg-gradient-light dark:bg-gradient-dark text-slate-800 dark:text-slate-200 min-h-screen">
+
+    <!-- Header -->
+    <header class="sticky top-0 left-0 right-0 z-50 glass-card">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-teal-500">Apex<span class="dark:text-white text-slate-800">Waiver</span></a>
+            <div class="flex items-center space-x-4">
+                 <div id="theme-switcher" class="flex items-center space-x-1 bg-slate-200/70 dark:bg-slate-700/70 p-1 rounded-full">
+                    <button id="light-theme-button" class="theme-button p-1.5 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    </button>
+                    <button id="dark-theme-button" class="theme-button p-1.5 rounded-full">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
+                </div>
+                <a href="index.html" class="hidden sm:block bg-teal-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-teal-600 transition-colors">Back to Main Site</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold">Provider Directory</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-slate-600 dark:text-slate-400">Search for APD providers, group homes, and other services across Florida.</p>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="glass-card rounded-2xl p-4 mb-12">
+            <div class="flex flex-col md:flex-row gap-4">
+                <input type="text" placeholder="Search by name, city, or service..." class="w-full px-4 py-3 bg-white/50 dark:bg-slate-800/50 rounded-lg border-2 border-transparent focus:border-teal-500 focus:outline-none transition">
+                <select class="px-4 py-3 bg-white/50 dark:bg-slate-800/50 rounded-lg border-2 border-transparent focus:border-teal-500 focus:outline-none transition">
+                    <option>All Service Types</option>
+                    <option>Group Home</option>
+                    <option>Supported Living</option>
+                    <option>Adult Day Training</option>
+                    <option>Personal Supports</option>
+                    <option>Respite Care</option>
+                </select>
+                <button class="bg-teal-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-teal-600 transition-colors">Search</button>
+            </div>
+        </div>
+
+        <!-- Provider Listings Grid -->
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+            
+            <!-- Listing Card 1 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col">
+                <div class="flex-grow">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold">Sunshine Group Home</h3>
+                        <div class="text-xs font-bold bg-purple-500/20 text-purple-500 dark:text-purple-300 py-1 px-3 rounded-full">Group Home</div>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-4">Providing a safe, supportive, and engaging living environment for individuals with developmental disabilities in the Orlando area.</p>
+                </div>
+                <div>
+                    <div class="border-t border-slate-200/50 dark:border-slate-700/50 pt-4 text-sm">
+                        <p class="font-semibold text-slate-700 dark:text-slate-300">Contact Information:</p>
+                        <p class="text-slate-600 dark:text-slate-400">123 Meadow Lane, Orlando, FL 32801</p>
+                        <p class="text-slate-600 dark:text-slate-400">(407) 555-1234</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listing Card 2 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col">
+                <div class="flex-grow">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold">Liberty Coaching</h3>
+                        <div class="text-xs font-bold bg-blue-500/20 text-blue-500 dark:text-blue-300 py-1 px-3 rounded-full">Supported Living</div>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-4">Empowering individuals to live independently through personalized coaching, life skills training, and community integration support.</p>
+                </div>
+                 <div>
+                    <div class="border-t border-slate-200/50 dark:border-slate-700/50 pt-4 text-sm">
+                        <p class="font-semibold text-slate-700 dark:text-slate-300">Contact Information:</p>
+                        <p class="text-slate-600 dark:text-slate-400">456 Freedom Rd, Tampa, FL 33602</p>
+                        <p class="text-slate-600 dark:text-slate-400">(813) 555-5678</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Listing Card 3 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col">
+                <div class="flex-grow">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold">Innovate ADT Center</h3>
+                        <div class="text-xs font-bold bg-teal-500/20 text-teal-500 dark:text-teal-300 py-1 px-3 rounded-full">Adult Day Training</div>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-4">A modern Adult Day Training facility focused on vocational skills, technology training, and creative arts programs.</p>
+                </div>
+                <div>
+                    <div class="border-t border-slate-200/50 dark:border-slate-700/50 pt-4 text-sm">
+                        <p class="font-semibold text-slate-700 dark:text-slate-300">Contact Information:</p>
+                        <p class="text-slate-600 dark:text-slate-400">789 Tech Park, Miami, FL 33101</p>
+                        <p class="text-slate-600 dark:text-slate-400">(305) 555-9876</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listing Card 4 -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col">
+                 <div class="flex-grow">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold">Compassion Care</h3>
+                        <div class="text-xs font-bold bg-rose-500/20 text-rose-500 dark:text-rose-300 py-1 px-3 rounded-full">Personal Supports</div>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-4">Offering reliable and compassionate in-home personal support services to help with daily activities and community engagement.</p>
+                </div>
+                <div>
+                    <div class="border-t border-slate-200/50 dark:border-slate-700/50 pt-4 text-sm">
+                        <p class="font-semibold text-slate-700 dark:text-slate-300">Contact Information:</p>
+                        <p class="text-slate-600 dark:text-slate-400">Serves Jacksonville Metro Area</p>
+                        <p class="text-slate-600 dark:text-slate-400">(904) 555-4321</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const lightThemeButton = document.getElementById('light-theme-button');
+            const darkThemeButton = document.getElementById('dark-theme-button');
+            const htmlElement = document.documentElement;
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    htmlElement.classList.add('dark');
+                    darkThemeButton.classList.add('active');
+                    lightThemeButton.classList.remove('active');
+                } else {
+                    htmlElement.classList.remove('dark');
+                    lightThemeButton.classList.add('active');
+                    darkThemeButton.classList.remove('active');
+                }
+            };
+            
+            const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            applyTheme(savedTheme);
+
+            lightThemeButton.addEventListener('click', () => {
+                const newTheme = 'light';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+
+            darkThemeButton.addEventListener('click', () => {
+                const newTheme = 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+        });
+    </script>
+
+</body>
+</html>
