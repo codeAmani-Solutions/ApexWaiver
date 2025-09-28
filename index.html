@@ -40,16 +40,16 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        /* New styles for the theme switcher */
-        .theme-button {
+        /* Styles for the theme and language switchers */
+        .toggle-button {
             transition: all 0.2s ease-in-out;
         }
-        .theme-button.active {
+        .toggle-button.active {
             box-shadow: 0 0 0 2px #14b8a6; /* teal-500 */
             background-color: white;
             color: #14b8a6;
         }
-        .dark .theme-button.active {
+        .dark .toggle-button.active {
              background-color: #1e293b; /* slate-800 */
              color: #14b8a6;
         }
@@ -64,18 +64,24 @@
                 <a href="#" class="text-2xl font-bold text-teal-500">Apex<span class="dark:text-white text-slate-800">Waiver</span></a>
             </div>
             <nav class="hidden md:flex items-center space-x-8">
-                <div class="container-nav-link"><a href="#features" class="hover:text-teal-400 transition-colors">Families</a></div>
-                <div class="container-nav-link"><a href="#coordinators" class="hover:text-teal-400 transition-colors">Coordinators</a></div>
-                <div class="container-nav-link"><a href="listings.html" target="_blank" rel="noopener noreferrer" class="hover:text-teal-400 transition-colors">Providers</a></div>
-                <div class="container-nav-link"><a href="#pricing" class="hover:text-teal-400 transition-colors">Pricing</a></div>
-                <div class="container-nav-link"><a href="#contact" class="hover:text-teal-400 transition-colors">Contact</a></div>
+                <div class="container-nav-link"><a href="#features" class="hover:text-teal-400 transition-colors" data-lang-en="Families" data-lang-es="Familias">Families</a></div>
+                <div class="container-nav-link"><a href="#coordinators" class="hover:text-teal-400 transition-colors" data-lang-en="Coordinators" data-lang-es="Coordinadores">Coordinators</a></div>
+                <div class="container-nav-link"><a href="listings.html" target="_blank" rel="noopener noreferrer" class="hover:text-teal-400 transition-colors" data-lang-en="Providers" data-lang-es="Proveedores">Providers</a></div>
+                <div class="container-nav-link"><a href="#pricing" class="hover:text-teal-400 transition-colors" data-lang-en="Pricing" data-lang-es="Precios">Pricing</a></div>
+                <div class="container-nav-link"><a href="#contact" class="hover:text-teal-400 transition-colors" data-lang-en="Contact" data-lang-es="Contacto">Contact</a></div>
             </nav>
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-2">
+                <!-- Language Switcher -->
+                <div id="language-switcher" class="flex items-center text-sm space-x-1 bg-slate-200/70 dark:bg-slate-700/70 p-1 rounded-full">
+                    <button id="lang-en-button" class="toggle-button font-semibold px-2 py-1 rounded-full" data-lang="en">EN</button>
+                    <button id="lang-es-button" class="toggle-button font-semibold px-2 py-1 rounded-full" data-lang="es">ES</button>
+                </div>
+                <!-- Theme Switcher -->
                 <div id="theme-switcher" class="flex items-center space-x-1 bg-slate-200/70 dark:bg-slate-700/70 p-1 rounded-full">
-                    <button id="light-theme-button" class="theme-button p-1.5 rounded-full">
+                    <button id="light-theme-button" class="toggle-button p-1.5 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                     </button>
-                    <button id="dark-theme-button" class="theme-button p-1.5 rounded-full">
+                    <button id="dark-theme-button" class="toggle-button p-1.5 rounded-full">
                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                     </button>
                 </div>
@@ -86,11 +92,11 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu md:hidden bg-white/80 dark:bg-slate-800/80 backdrop-blur-md absolute top-full left-0 w-full transform -translate-x-full">
-            <div class="container-mobile-link"><a href="#features" class="block text-center py-4 px-6 hover:bg-teal-500/10 transition-colors mobile-link">Families</a></div>
-            <div class="container-mobile-link"><a href="#coordinators" class="block text-center py-4 px-6 hover:bg-teal-500/10 transition-colors mobile-link">Coordinators</a></div>
-            <div class="container-mobile-link"><a href="listings.html" target="_blank" rel="noopener noreferrer" class="block text-center py-4 px-6 hover:bg-teal-500/10 transition-colors mobile-link">Providers</a></div>
-            <div class="container-mobile-link"><a href="#pricing" class="block text-center py-4 px-6 hover:bg-teal-500/10 transition-colors mobile-link">Pricing</a></div>
-            <div class="container-mobile-link"><a href="#contact" class="block text-center py-4 px-6 hover:bg-teal-500/10 transition-colors mobile-link">Contact</a></div>
+            <div class="container-mobile-link"><a href="#features" class="block text-center py-4 px-6 hover:bg-teal-500/10 transition-colors mobile-link" data-lang-en="Families" data-lang-es="Familias">Families</a></div>
+            <div class="container-mobile-link"><a href="#coordinators" class="block text-center py-4 px-6 hover:bg-teal-500/10 transition-colors mobile-link" data-lang-en="Coordinators" data-lang-es="Coordinadores">Coordinators</a></div>
+            <div class="container-mobile-link"><a href="listings.html" target="_blank" rel="noopener noreferrer" class="block text-center py-4 px-6 hover:bg-teal-500/10 transition-colors mobile-link" data-lang-en="Providers" data-lang-es="Proveedores">Providers</a></div>
+            <div class="container-mobile-link"><a href="#pricing" class="block text-center py-4 px-6 hover:bg-teal-500/10 transition-colors mobile-link" data-lang-en="Pricing" data-lang-es="Precios">Pricing</a></div>
+            <div class="container-mobile-link"><a href="#contact" class="block text-center py-4 px-6 hover:bg-teal-500/10 transition-colors mobile-link" data-lang-en="Contact" data-lang-es="Contacto">Contact</a></div>
         </div>
     </header>
 
@@ -99,21 +105,21 @@
         <section id="home" class="container mx-auto px-6 py-20 md:py-32 text-center">
             <div class="container-h1">
                 <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500" data-lang-en="Clarity in Care." data-lang-es="Claridad en el Cuidado.">
                         Clarity in Care.
                     </span><br>
-                    Compliance in the Cloud.
+                    <span data-lang-en="Compliance in the Cloud." data-lang-es="Cumplimiento en la Nube.">Compliance in the Cloud.</span>
                 </h1>
             </div>
             <div class="container-p mt-6">
-                <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-400">
+                <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-400" data-lang-en="Apex Waiver replaces outdated systems with a streamlined, user-centric experience, providing families with the clearest path to care and providers the modern tools they need to succeed." data-lang-es="Apex Waiver reemplaza los sistemas obsoletos con una experiencia optimizada y centrada en el usuario, brindando a las familias el camino más claro hacia el cuidado y a los proveedores las herramientas modernas que necesitan para tener éxito.">
                     Apex Waiver replaces outdated systems with a streamlined, user-centric experience, providing families with the clearest path to care and providers the modern tools they need to succeed.
                 </p>
             </div>
             <div class="container-buttons mt-10">
                 <div class="flex justify-center items-center space-x-4">
-                    <a href="#features" class="bg-teal-500 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-600 transition-all transform hover:scale-105 shadow-lg">Get Started</a>
-                    <a href="listings.html" target="_blank" rel="noopener noreferrer" class="border-2 border-slate-400 text-slate-700 dark:text-slate-300 dark:border-slate-500 font-semibold px-8 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all transform hover:scale-105">For Providers</a>
+                    <a href="#features" class="bg-teal-500 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-600 transition-all transform hover:scale-105 shadow-lg" data-lang-en="Get Started" data-lang-es="Empezar">Get Started</a>
+                    <a href="listings.html" target="_blank" rel="noopener noreferrer" class="border-2 border-slate-400 text-slate-700 dark:text-slate-300 dark:border-slate-500 font-semibold px-8 py-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all transform hover:scale-105" data-lang-en="For Providers" data-lang-es="Para Proveedores">For Providers</a>
                 </div>
             </div>
         </section>
@@ -123,10 +129,10 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <div class="container-h2">
-                        <h2 class="text-3xl md:text-4xl font-bold">Empowering Families & Individuals</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold" data-lang-en="Empowering Families & Individuals" data-lang-es="Empoderando a Familias e Individuos">Empowering Families & Individuals</h2>
                     </div>
                     <div class="container-p mt-4">
-                        <p class="max-w-2xl mx-auto text-slate-600 dark:text-slate-400">Unparalleled value and clarity to guide you on your journey.</p>
+                        <p class="max-w-2xl mx-auto text-slate-600 dark:text-slate-400" data-lang-en="Unparalleled value and clarity to guide you on your journey." data-lang-es="Valor y claridad incomparables para guiarte en tu viaje.">Unparalleled value and clarity to guide you on your journey.</p>
                     </div>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
@@ -138,10 +144,10 @@
                             </div>
                         </div>
                         <div class="container-h3">
-                            <h3 class="text-xl font-bold mb-2">Interactive Resource Hub</h3>
+                            <h3 class="text-xl font-bold mb-2" data-lang-en="Interactive Resource Hub" data-lang-es="Centro de Recursos Interactivo">Interactive Resource Hub</h3>
                         </div>
                         <div class="container-p">
-                            <p class="text-slate-600 dark:text-slate-400">A searchable, filterable knowledge base with articles, tutorials, and direct links to APD forms.</p>
+                            <p class="text-slate-600 dark:text-slate-400" data-lang-en="A searchable, filterable knowledge base with articles, tutorials, and direct links to APD forms." data-lang-es="Una base de conocimientos con capacidad de búsqueda y filtrado, con artículos, tutoriales y enlaces directos a los formularios de APD.">A searchable, filterable knowledge base with articles, tutorials, and direct links to APD forms.</p>
                         </div>
                     </div>
                     <!-- Feature Card 2 -->
@@ -152,10 +158,10 @@
                             </div>
                         </div>
                         <div class="container-h3">
-                            <h3 class="text-xl font-bold mb-2">Next-Gen Provider Directory</h3>
+                            <h3 class="text-xl font-bold mb-2" data-lang-en="Next-Gen Provider Directory" data-lang-es="Directorio de Proveedores de Nueva Generación">Next-Gen Provider Directory</h3>
                         </div>
                         <div class="container-p">
-                            <p class="text-slate-600 dark:text-slate-400">Advanced filtering by location, service, language, and real-time provider availability.</p>
+                            <p class="text-slate-600 dark:text-slate-400" data-lang-en="Advanced filtering by location, service, language, and real-time provider availability." data-lang-es="Filtrado avanzado por ubicación, servicio, idioma y disponibilidad de proveedores en tiempo real.">Advanced filtering by location, service, language, and real-time provider availability.</p>
                         </div>
                     </div>
                     <!-- Feature Card 3 -->
@@ -166,10 +172,10 @@
                             </div>
                         </div>
                         <div class="container-h3">
-                            <h3 class="text-xl font-bold mb-2">Waitlist Navigator Tool</h3>
+                            <h3 class="text-xl font-bold mb-2" data-lang-en="Waitlist Navigator Tool" data-lang-es="Herramienta Navegador de Lista de Espera">Waitlist Navigator Tool</h3>
                         </div>
                         <div class="container-p">
-                            <p class="text-slate-600 dark:text-slate-400">An interactive questionnaire to understand priority criteria with a personalized checklist.</p>
+                            <p class="text-slate-600 dark:text-slate-400" data-lang-en="An interactive questionnaire to understand priority criteria with a personalized checklist." data-lang-es="Un cuestionario interactivo para comprender los criterios de prioridad con una lista de verificación personalizada.">An interactive questionnaire to understand priority criteria with a personalized checklist.</p>
                         </div>
                     </div>
                 </div>
@@ -181,10 +187,10 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <div class="container-h2">
-                        <h2 class="text-3xl md:text-4xl font-bold">Built for Florida's Waiver Support Coordinators</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold" data-lang-en="Built for Florida's Waiver Support Coordinators" data-lang-es="Creado para los Coordinadores de Apoyo de Waiver de Florida">Built for Florida's Waiver Support Coordinators</h2>
                     </div>
                     <div class="container-p mt-4">
-                        <p class="mt-4 max-w-2xl mx-auto text-slate-600 dark:text-slate-400">Manage your caseload, connect with providers, and simplify compliance like never before.</p>
+                        <p class="mt-4 max-w-2xl mx-auto text-slate-600 dark:text-slate-400" data-lang-en="Manage your caseload, connect with providers, and simplify compliance like never before." data-lang-es="Gestione su lista de casos, conéctese con proveedores y simplifique el cumplimiento como nunca antes.">Manage your caseload, connect with providers, and simplify compliance like never before.</p>
                     </div>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
@@ -196,10 +202,10 @@
                             </div>
                         </div>
                         <div class="container-h3">
-                            <h3 class="text-xl font-bold mb-2">Unified Caseload Management</h3>
+                            <h3 class="text-xl font-bold mb-2" data-lang-en="Unified Caseload Management" data-lang-es="Gestión de Casos Unificada">Unified Caseload Management</h3>
                         </div>
                         <div class="container-p">
-                            <p class="text-slate-600 dark:text-slate-400">Keep client information organized, track progress, and manage communications all in one secure, accessible place.</p>
+                            <p class="text-slate-600 dark:text-slate-400" data-lang-en="Keep client information organized, track progress, and manage communications all in one secure, accessible place." data-lang-es="Mantenga la información del cliente organizada, siga el progreso y gestione las comunicaciones en un solo lugar seguro y accesible.">Keep client information organized, track progress, and manage communications all in one secure, accessible place.</p>
                         </div>
                     </div>
                     <!-- Coordinator Card 2 -->
@@ -210,10 +216,10 @@
                             </div>
                         </div>
                         <div class="container-h3">
-                            <h3 class="text-xl font-bold mb-2">Powerful Provider Search</h3>
+                            <h3 class="text-xl font-bold mb-2" data-lang-en="Powerful Provider Search" data-lang-es="Búsqueda Potente de Proveedores">Powerful Provider Search</h3>
                         </div>
                         <div class="container-p">
-                            <p class="text-slate-600 dark:text-slate-400">Quickly find the right providers for your clients with our advanced directory, filtering by service, location, and real-time availability.</p>
+                            <p class="text-slate-600 dark:text-slate-400" data-lang-en="Quickly find the right providers for your clients with our advanced directory, filtering by service, location, and real-time availability." data-lang-es="Encuentre rápidamente los proveedores adecuados para sus clientes con nuestro directorio avanzado, filtrando por servicio, ubicación y disponibilidad en tiempo real.">Quickly find the right providers for your clients with our advanced directory, filtering by service, location, and real-time availability.</p>
                         </div>
                     </div>
                     <!-- Coordinator Card 3 -->
@@ -224,10 +230,10 @@
                             </div>
                         </div>
                         <div class="container-h3">
-                            <h3 class="text-xl font-bold mb-2">Join the Founder's Program</h3>
+                            <h3 class="text-xl font-bold mb-2" data-lang-en="Join the Founder's Program" data-lang-es="Únase al Programa de Fundadores">Join the Founder's Program</h3>
                         </div>
                         <div class="container-p">
-                            <p class="text-slate-600 dark:text-slate-400">Get free, early access and help shape the future of waiver technology in Florida. Your feedback is crucial to our mission.</p>
+                            <p class="text-slate-600 dark:text-slate-400" data-lang-en="Get free, early access and help shape the future of waiver technology in Florida. Your feedback is crucial to our mission." data-lang-es="Obtenga acceso anticipado y gratuito y ayude a dar forma al futuro de la tecnología de exención en Florida. Sus comentarios son cruciales para nuestra misión.">Get free, early access and help shape the future of waiver technology in Florida. Your feedback is crucial to our mission.</p>
                         </div>
                     </div>
                 </div>
@@ -239,10 +245,10 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <div class="container-h2">
-                        <h2 class="text-3xl md:text-4xl font-bold">The Indispensable Command Center for Providers</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold" data-lang-en="The Indispensable Command Center for Providers" data-lang-es="El Centro de Mando Indispensable para Proveedores">The Indispensable Command Center for Providers</h2>
                     </div>
                     <div class="container-p mt-4">
-                        <p class="max-w-2xl mx-auto text-slate-600 dark:text-slate-400">Our core SaaS offering and primary revenue driver, designed for the modern provider.</p>
+                        <p class="max-w-2xl mx-auto text-slate-600 dark:text-slate-400" data-lang-en="Our core SaaS offering and primary revenue driver, designed for the modern provider." data-lang-es="Nuestra oferta principal de SaaS y principal motor de ingresos, diseñada para el proveedor moderno.">Our core SaaS offering and primary revenue driver, designed for the modern provider.</p>
                     </div>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -254,10 +260,10 @@
                             </div>
                         </div>
                         <div class="container-h3">
-                            <h3 class="text-lg font-bold mb-2">ApexNotes</h3>
+                            <h3 class="text-lg font-bold mb-2" data-lang-en="ApexNotes" data-lang-es="ApexNotas">ApexNotes</h3>
                         </div>
                         <div class="container-p">
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Fully cloud-based compliance docs with built-in APD requirements. Create billable, audit-proof notes in under 90 seconds.</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400" data-lang-en="Fully cloud-based compliance docs with built-in APD requirements. Create billable, audit-proof notes in under 90 seconds." data-lang-es="Documentos de cumplimiento totalmente basados en la nube con requisitos de APD incorporados. Cree notas facturables y a prueba de auditorías en menos de 90 segundos.">Fully cloud-based compliance docs with built-in APD requirements. Create billable, audit-proof notes in under 90 seconds.</p>
                         </div>
                     </div>
                      <!-- Provider Card 2 -->
@@ -268,10 +274,10 @@
                             </div>
                         </div>
                         <div class="container-h3">
-                            <h3 class="text-lg font-bold mb-2">Client & Lead Management</h3>
+                            <h3 class="text-lg font-bold mb-2" data-lang-en="Client & Lead Management" data-lang-es="Gestión de Clientes y Prospectos">Client & Lead Management</h3>
                         </div>
                         <div class="container-p">
-                            <p class="text-sm text-slate-600 dark:text-slate-400">A simple CRM to track inquiries, manage client onboarding, and view communication history.</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400" data-lang-en="A simple CRM to track inquiries, manage client onboarding, and view communication history." data-lang-es="Un CRM simple para rastrear consultas, gestionar la incorporación de clientes y ver el historial de comunicaciones.">A simple CRM to track inquiries, manage client onboarding, and view communication history.</p>
                         </div>
                     </div>
                      <!-- Provider Card 3 -->
@@ -282,10 +288,10 @@
                             </div>
                         </div>
                         <div class="container-h3">
-                            <h3 class="text-lg font-bold mb-2">Performance Analytics</h3>
+                            <h3 class="text-lg font-bold mb-2" data-lang-en="Performance Analytics" data-lang-es="Análisis de Rendimiento">Performance Analytics</h3>
                         </div>
                         <div class="container-p">
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Visually appealing dashboard showing key metrics like profile views, leads, and response times to demonstrate ROI.</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400" data-lang-en="Visually appealing dashboard showing key metrics like profile views, leads, and response times to demonstrate ROI." data-lang-es="Panel de control visualmente atractivo que muestra métricas clave como vistas de perfil, clientes potenciales y tiempos de respuesta para demostrar el ROI.">Visually appealing dashboard showing key metrics like profile views, leads, and response times to demonstrate ROI.</p>
                         </div>
                     </div>
                      <!-- Provider Card 4 -->
@@ -296,10 +302,10 @@
                             </div>
                         </div>
                         <div class="container-h3">
-                            <h3 class="text-lg font-bold mb-2">Go-to-Market Strategy</h3>
+                            <h3 class="text-lg font-bold mb-2" data-lang-en="Go-to-Market Strategy" data-lang-es="Estrategia de Salida al Mercado">Go-to-Market Strategy</h3>
                         </div>
                         <div class="container-p">
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Phase 1: Build Authority. Phase 2: Founder's Program. Phase 3: Commercial Launch.</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400" data-lang-en="Phase 1: Build Authority. Phase 2: Founder's Program. Phase 3: Commercial Launch." data-lang-es="Fase 1: Construir Autoridad. Fase 2: Programa de Fundadores. Fase 3: Lanzamiento Comercial.">Phase 1: Build Authority. Phase 2: Founder's Program. Phase 3: Commercial Launch.</p>
                         </div>
                     </div>
                 </div>
@@ -311,68 +317,68 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <div class="container-h2">
-                        <h2 class="text-3xl md:text-4xl font-bold">Transparent Pricing for Providers</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold" data-lang-en="Transparent Pricing for Providers" data-lang-es="Precios Transparentes para Proveedores">Transparent Pricing for Providers</h2>
                     </div>
                     <div class="container-p mt-4">
-                        <p class="max-w-2xl mx-auto text-slate-600 dark:text-slate-400">Clear value at each level with no hidden fees.</p>
+                        <p class="max-w-2xl mx-auto text-slate-600 dark:text-slate-400" data-lang-en="Clear value at each level with no hidden fees." data-lang-es="Valor claro en cada nivel sin tarifas ocultas.">Clear value at each level with no hidden fees.</p>
                     </div>
                 </div>
                 <div class="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
                     <!-- Pricing Tier 1 -->
                     <div class="glass-card rounded-2xl p-8 flex flex-col shadow-lg">
                         <div class="container-h3">
-                            <h3 class="text-xl font-bold text-teal-500">Professional Listing</h3>
+                            <h3 class="text-xl font-bold text-teal-500" data-lang-en="Professional Listing" data-lang-es="Listado Profesional">Professional Listing</h3>
                         </div>
                         <div class="container-p mt-2">
-                            <p class="text-4xl font-extrabold">$49<span class="text-base font-medium text-slate-500 dark:text-slate-400">/month</span></p>
+                            <p class="text-4xl font-extrabold">$49<span class="text-base font-medium text-slate-500 dark:text-slate-400" data-lang-en="/month" data-lang-es="/mes">/month</span></p>
                         </div>
                         <div class="container-ul mt-6 flex-grow">
                             <ul class="space-y-3 text-slate-600 dark:text-slate-400">
-                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Premium Directory Profile</li>
-                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Lead Management Dashboard</li>
-                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Performance Analytics</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-lang-en="Premium Directory Profile" data-lang-es="Perfil de Directorio Premium">Premium Directory Profile</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-lang-en="Lead Management Dashboard" data-lang-es="Panel de Gestión de Prospectos">Lead Management Dashboard</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-lang-en="Performance Analytics" data-lang-es="Análisis de Rendimiento">Performance Analytics</span></li>
                             </ul>
                         </div>
                         <div class="container-button mt-8">
-                            <a href="#" class="w-full text-center bg-slate-200 dark:bg-slate-700 font-semibold px-6 py-3 rounded-full hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors block">Choose Plan</a>
+                            <a href="#" class="w-full text-center bg-slate-200 dark:bg-slate-700 font-semibold px-6 py-3 rounded-full hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors block" data-lang-en="Choose Plan" data-lang-es="Elegir Plan">Choose Plan</a>
                         </div>
                     </div>
                     <!-- Pricing Tier 2 -->
                     <div class="glass-card rounded-2xl p-8 flex flex-col shadow-xl border-2 border-teal-500 transform scale-105">
-                        <p class="absolute top-0 -translate-y-1/2 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</p>
+                        <p class="absolute top-0 -translate-y-1/2 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-full" data-lang-en="MOST POPULAR" data-lang-es="MÁS POPULAR">MOST POPULAR</p>
                         <div class="container-h3">
-                            <h3 class="text-xl font-bold text-teal-500">Compliance Suite</h3>
+                            <h3 class="text-xl font-bold text-teal-500" data-lang-en="Compliance Suite" data-lang-es="Suite de Cumplimiento">Compliance Suite</h3>
                         </div>
                         <div class="container-p mt-2">
-                            <p class="text-4xl font-extrabold">$79<span class="text-base font-medium text-slate-500 dark:text-slate-400">/month</span></p>
+                            <p class="text-4xl font-extrabold">$79<span class="text-base font-medium text-slate-500 dark:text-slate-400" data-lang-en="/month" data-lang-es="/mes">/month</span></p>
                         </div>
                         <div class="container-ul mt-6 flex-grow">
                             <ul class="space-y-3 text-slate-600 dark:text-slate-400">
-                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>All Professional Features</li>
-                                <li class="flex items-center font-bold"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Full ApexNotes Access</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-lang-en="All Professional Features" data-lang-es="Todas las Funciones Profesionales">All Professional Features</span></li>
+                                <li class="flex items-center font-bold"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-lang-en="Full ApexNotes Access" data-lang-es="Acceso Completo a ApexNotes">Full ApexNotes Access</span></li>
                             </ul>
                         </div>
                         <div class="container-button mt-8">
-                            <a href="#" class="w-full text-center bg-teal-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-teal-600 transition-colors block">Choose Plan</a>
+                            <a href="#" class="w-full text-center bg-teal-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-teal-600 transition-colors block" data-lang-en="Choose Plan" data-lang-es="Elegir Plan">Choose Plan</a>
                         </div>
                     </div>
                     <!-- Pricing Tier 3 -->
                     <div class="glass-card rounded-2xl p-8 flex flex-col shadow-lg">
                         <div class="container-h3">
-                            <h3 class="text-xl font-bold text-teal-500">Agency Suite</h3>
+                            <h3 class="text-xl font-bold text-teal-500" data-lang-en="Agency Suite" data-lang-es="Suite de Agencia">Agency Suite</h3>
                         </div>
                         <div class="container-p mt-2">
-                            <p class="text-4xl font-extrabold">Custom</p>
+                            <p class="text-4xl font-extrabold" data-lang-en="Custom" data-lang-es="Personalizado">Custom</p>
                         </div>
                         <div class="container-ul mt-6 flex-grow">
                             <ul class="space-y-3 text-slate-600 dark:text-slate-400">
-                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>All Compliance Features</li>
-                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Multi-user ApexNotes Access</li>
-                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Advanced Admin Controls</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-lang-en="All Compliance Features" data-lang-es="Todas las Funciones de Cumplimiento">All Compliance Features</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-lang-en="Multi-user ApexNotes Access" data-lang-es="Acceso Multi-usuario a ApexNotes">Multi-user ApexNotes Access</span></li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span data-lang-en="Advanced Admin Controls" data-lang-es="Controles de Administrador Avanzados">Advanced Admin Controls</span></li>
                             </ul>
                         </div>
                         <div class="container-button mt-8">
-                            <a href="#contact" class="w-full text-center bg-slate-200 dark:bg-slate-700 font-semibold px-6 py-3 rounded-full hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors block">Contact Us</a>
+                            <a href="#contact" class="w-full text-center bg-slate-200 dark:bg-slate-700 font-semibold px-6 py-3 rounded-full hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors block" data-lang-en="Contact Us" data-lang-es="Contáctenos">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -383,21 +389,21 @@
         <footer id="contact" class="py-16">
             <div class="container mx-auto px-6 text-center">
                 <div class="container-h2">
-                     <h2 class="text-3xl font-bold">Ready to Modernize Your Workflow?</h2>
+                     <h2 class="text-3xl font-bold" data-lang-en="Ready to Modernize Your Workflow?" data-lang-es="¿Listo para Modernizar su Flujo de Trabajo?">Ready to Modernize Your Workflow?</h2>
                 </div>
                 <div class="container-p mt-4">
-                     <p class="max-w-lg mx-auto text-slate-600 dark:text-slate-400">Join the waitlist or contact us for agency pricing and get ready to experience the future of waiver services.</p>
+                     <p class="max-w-lg mx-auto text-slate-600 dark:text-slate-400" data-lang-en="Join the waitlist or contact us for agency pricing and get ready to experience the future of waiver services." data-lang-es="Únase a la lista de espera o contáctenos para precios de agencia y prepárese para experimentar el futuro de los servicios de exención.">Join the waitlist or contact us for agency pricing and get ready to experience the future of waiver services.</p>
                 </div>
                 <div class="container-button mt-8">
-                     <a href="#" class="inline-block bg-teal-500 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-600 transition-all transform hover:scale-105 shadow-lg">Join the Founder's Program</a>
+                     <a href="#" class="inline-block bg-teal-500 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-600 transition-all transform hover:scale-105 shadow-lg" data-lang-en="Join the Founder's Program" data-lang-es="Únase al Programa de Fundadores">Join the Founder's Program</a>
                 </div>
                 <div class="mt-16 border-t border-slate-200 dark:border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 dark:text-slate-400">
                     <div class="container-p">
-                        <p>&copy; 2025 Apex Waiver. All rights reserved.</p>
+                        <p data-lang-en="© 2025 Apex Waiver. All rights reserved." data-lang-es="© 2025 Apex Waiver. Todos los derechos reservados.">&copy; 2025 Apex Waiver. All rights reserved.</p>
                     </div>
                     <div class="container-links flex space-x-4 mt-4 md:mt-0">
-                        <a href="#" class="hover:text-teal-500">Privacy Policy</a>
-                        <a href="#" class="hover:text-teal-500">Terms of Service</a>
+                        <a href="#" class="hover:text-teal-500" data-lang-en="Privacy Policy" data-lang-es="Política de Privacidad">Privacy Policy</a>
+                        <a href="#" class="hover:text-teal-500" data-lang-en="Terms of Service" data-lang-es="Términos de Servicio">Terms of Service</a>
                     </div>
                 </div>
             </div>
@@ -438,6 +444,39 @@
                 const newTheme = 'dark';
                 localStorage.setItem('theme', newTheme);
                 applyTheme(newTheme);
+            });
+
+            // Language switcher logic
+            const langEnButton = document.getElementById('lang-en-button');
+            const langEsButton = document.getElementById('lang-es-button');
+            const translatableElements = document.querySelectorAll('[data-lang-en]');
+
+            const applyLanguage = (lang) => {
+                translatableElements.forEach(el => {
+                    el.textContent = el.dataset[`lang${lang}`];
+                });
+                if (lang === 'es') {
+                    langEsButton.classList.add('active');
+                    langEnButton.classList.remove('active');
+                } else {
+                    langEnButton.classList.add('active');
+                    langEsButton.classList.remove('active');
+                }
+            };
+
+            const savedLang = localStorage.getItem('language') || 'en';
+            applyLanguage(savedLang);
+
+            langEnButton.addEventListener('click', () => {
+                const newLang = 'en';
+                localStorage.setItem('language', newLang);
+                applyLanguage(newLang);
+            });
+            
+            langEsButton.addEventListener('click', () => {
+                const newLang = 'es';
+                localStorage.setItem('language', newLang);
+                applyLanguage(newLang);
             });
             
             // Mobile menu toggle
